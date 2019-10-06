@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Square extends Component {
+  render (){
+    let style = {
+      width: "250px", 
+      height: "250px",
+      color: this.props.color,
+      backgroundColor: this.props.background,
+      display: "inline-block",
+      margin: "10px",
+      verticalAlign: "top"
+    };
+    return (
+      <h1 style = {style}> {this.props.color} on {this.props.background}</h1>
+    );
+  }
+}
+
+class App extends Component {
+  render () {
+    return (
+      <>
+      <Square color ="white" background="blue" />
+      <Square color ="blue" background="red" />
+      <Square color ="green" background="pink" />
+      </>
+    );
+  }
 }
 
 export default App;
